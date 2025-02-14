@@ -2,6 +2,10 @@
 
 **NOTE**: You can just follow this guide: <https://docs.rapids.ai/install/#wsl2>. Contrary to the one below, it was written by the people who developed it, so they know what they're talking about. I personally went with the "WSL2 SDK Manager Install" and it took about 500 centuries to finish installing (but everything worked first try, it even created a new virtual environment for me). If you already have `conda` set up on WSL, you can also just use the "Release Selector" method.
 
+*ps. If you opt for the "WSL2 SDK Manager Install" method, you can find the name of the conda environment by running the command `conda info --envs`, for me it was 'rapids-24.12', which you can then activate by typing `conda activate rapids-24.12`*
+
+---
+
 ## Prerequisites
 
 ### CUDA
