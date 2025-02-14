@@ -1,0 +1,3 @@
+polars[gpu] # this might give you an error
+pandas
+pyarrow
