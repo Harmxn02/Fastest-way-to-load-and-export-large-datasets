@@ -4,6 +4,8 @@
 
 *ps. If you opt for the "WSL2 SDK Manager Install" method, you can find the name of the conda environment by running the command `conda info --envs`, for me it was 'rapids-24.12', which you can then activate by typing `conda activate rapids-24.12`*
 
+Steps 1, 2, 5, 6, and 7 still apply, but they are mentioned in the official guide as well.
+
 ---
 
 ## Prerequisites
