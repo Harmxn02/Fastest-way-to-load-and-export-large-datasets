@@ -10,6 +10,7 @@
 
 - Pandas
 - Pandas with PyArrow backend (parquet)
+- Pandas with cuDF
 - Polars
 - Polars with CUDA (always tested [in a different notebook](./gpu_accelerated/polars.ipynb), because it requires me to use WSL 2)
 
@@ -34,6 +35,14 @@ We simply read in the dataset
 | Pandas with PyArrow | 1.8045                                                             |
 | Polars (CPU)        | 1.1111                                                             |
 | Polars with CUDA    | _data reading is not accelerated with this method, so: idem above_ |
+
+Here I compare the speeds of `pandas` and `cuDF` (Pandas with CUDA acceleration), in a seperate notebook. [link](./gpu_accelerated/pandas.ipynb)
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 15.4155        |
+| cuDF.read_csv                       | 3.0132         |
+| Pandas with `%load_ext cudf.pandas` | 2.7375         |
 
 ### Performing operations on data
 
