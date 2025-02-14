@@ -1,6 +1,0 @@
-{
-    // Assuming the WSL 2's virtual environment is called "rapid_env", but you should replace it with your own virtual environment name
-    "python.defaultInterpreterPath": "~/rapids_env/bin/python",
-}
-
-// If you are not running code on WSL, you should either delete this file or comment it out
