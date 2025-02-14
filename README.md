@@ -23,6 +23,12 @@ We use a concatenated version of the CICIDS2017 dataset. It is 921 MB in size
 
 ![dataset_information](./public/dataset_information.png)
 
+## Conclusion
+
+Using GPU acceleration significantly improves performance when handling large datasets in Python.
+
+cuDF and Polars with CUDA drastically reduce processing times compared to traditional Pandas. PyArrow enhances Pandas' efficiency, but Polars (CPU) remains faster. For optimal performance, leveraging GPU-accelerated libraries like cuDF and Polars with CUDA is recommended.
+
 ## Results
 
 ### Reading data
