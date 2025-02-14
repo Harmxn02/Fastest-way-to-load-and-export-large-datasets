@@ -26,7 +26,7 @@ nvidia-smi
 
 Start by cloning this repository, or download as ZIP and extract it.
 
-## 1. Install WSL 2 (Windows Subsystem for Linux) on your Windows machine. 
+## 1. Install WSL 2 (Windows Subsystem for Linux) on your Windows machine
 
 You can follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
 
@@ -62,7 +62,7 @@ pip install -r requirements.txt
 
 ## 6. Open project in VS Code
 
-```bash 
+```bash
 code .
 ```
 
