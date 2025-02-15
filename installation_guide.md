@@ -1,22 +1,42 @@
-# Installation guide
+# Installation Guide
 
-**NOTE**: You can just follow this guide: <https://docs.rapids.ai/install/#wsl2>. Contrary to the one below, it was written by the people who developed it, so they know what they're talking about. I personally went with the "WSL2 SDK Manager Install" and it took about 500 centuries to finish installing (but everything worked first try, it even created a new virtual environment for me). If you already have `conda` set up on WSL, you can also just use the "Release Selector" method.
+## Recommended Installation Method
 
-*ps. If you opt for the "WSL2 SDK Manager Install" method, you can find the name of the conda environment by running the command `conda info --envs`, for me it was 'rapids-24.12', which you can then activate by typing `conda activate rapids-24.12`*
+For the best experience, follow the official guide: <https://docs.rapids.ai/install/#wsl2>. Since it's written by the developers, it’s the most reliable source of information.
 
-Steps 1, 2, 5, 6, and 7 still apply, but they are mentioned in the official guide as well.
+I personally used the **"WSL2 SDK Manager Install"** method. It took a long time to install, but everything worked on the first try, including the creation of a new virtual environment.
+
+If you already have `conda` set up in WSL, you can also use the **"Release Selector"** method.
+
+### Finding the Conda Environment Name
+
+If you opt for the **"WSL2 SDK Manager Install"** method, you can find the name of the conda environment by running:
+
+```bash
+conda info --envs
+```
+
+For me, it was `rapids-24.12`, which you can activate with:
+
+```bash
+conda activate rapids-24.12
+```
+
+### Steps That Still Apply
+
+Even if you follow the official guide, steps **1, 2, 5, 6, and 7** in this guide are still relevant, but they are also mentioned in the official documentation.
 
 ---
 
 ## Prerequisites
 
-### CUDA
+### CUDA Toolkit
 
-Make sure you have CUDA Toolkit 11.1 installed on your machine. You can download it [here](https://developer.nvidia.com/cuda-11.1.1-download-archive).
+Ensure you have **CUDA Toolkit 11.1** installed. You can download it [here](https://developer.nvidia.com/cuda-11.1.1-download-archive).
 
-You'll need Visual Studio Build Tools, in particular the "Development with C++" workload. You can install it from this link [here](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
+You will also need **Visual Studio Build Tools**, specifically the "Development with C++" workload. Install it from [this link](https://visualstudio.microsoft.com/visual-cpp-build-tools/).
 
-Check if everything is installed correctly by running the following command in your terminal
+To verify your installation, run the following commands:
 
 ```bash
 nvcc --version
@@ -28,25 +48,40 @@ or
 nvidia-smi
 ```
 
-### This repository
+### Clone This Repository
 
-Start by cloning this repository, or download as ZIP and extract it.
+Clone this repository using Git, or download it as a ZIP and extract it.
 
-## 1. Install WSL 2 (Windows Subsystem for Linux) on your Windows machine
+```bash
+git clone <repository-url>
+cd <repository-folder>
+```
 
-You can follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install).
+---
 
-Basically, you need to enable WSL 2 feature on your Windows machine, and then install a Linux distribution from the Microsoft Store (or with this command: `wsl --install -d Ubuntu-24.04`, or this one `wsl --install -d Ubuntu-20.04`, or this one `wsl --install -d Debian`).
+## Installation Steps
 
-## 2. Set WSL version 2 as the default
+### 1. Install WSL 2
+
+Follow the instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install) to install WSL 2 on your Windows machine.
+
+Alternatively, run one of the following commands to install a Linux distribution:
+
+```bash
+wsl --install -d Ubuntu-24.04
+wsl --install -d Ubuntu-20.04
+wsl --install -d Debian
+```
+
+### 2. Set WSL 2 as the Default Version
 
 ```bash
 wsl --set-default-version 2
 ```
 
-## 3. Create a virtual environment inside WSL 2 (in this case we call it `my-env`)
+### 3. Create a Virtual Environment in WSL 2
 
-**Why?** You need to create a virtual environment to be able to install pip-packages, I don't know why either but it's a thing.
+A virtual environment is required to install Python packages.
 
 ```bash
 sudo apt update
@@ -54,35 +89,39 @@ sudo apt install python3 python3-venv python3-pip
 python3 -m venv my-env
 ```
 
-## 4. activate the virtual environment
+### 4. Activate the Virtual Environment
 
 ```bash
 source my-env/bin/activate
 ```
 
-## 5. Install the required packages
+### 5. Install Required Packages
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## 6. Open project in VS Code
+### 6. Open the Project in VS Code
+
+Run the following command to install VS Code for WSL and open the project:
 
 ```bash
 code .
 ```
 
-This will install VS Code for WSL and then open the project in VS Code. This installation does not contain all your extensions, but you can activate them in WSL.
+*Note:* This installation does not automatically include all your VS Code extensions, but you can enable them in WSL.
 
-## 7. Use the virtual environment
+### 7. Use the Virtual Environment in VS Code
 
-When selecting an interpreter, select `<your-environment-name>`, instead of Python version with a version number. The interpreter you need has the exact same name as the virtual environment, and will have a Python version number after it, in this format
+When selecting a Python interpreter in VS Code, choose the one that matches your virtual environment’s name. It should look like this:
 
-- ✅ gpu-env (Python 3.11.2) <<< select this one
-- ❌ Python 3.11.2 /bin/python3
-- ❌ Python 3.11.2 /usr/bin/python3
+- ✅ `gpu-env (Python 3.11.2)`  **← Select this one**
+- ❌ `Python 3.11.2 /bin/python3`
+- ❌ `Python 3.11.2 /usr/bin/python3`
 
-When you first try running some code, it will ask you to install `ipykernel`, do this by running the following command
+#### Installing `ipykernel`
+
+When you first run Python code in VS Code, you may be prompted to install `ipykernel`. Install it with:
 
 ```bash
 pip install ipykernel
