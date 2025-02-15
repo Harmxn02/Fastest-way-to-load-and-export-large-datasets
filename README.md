@@ -73,4 +73,53 @@ The CUDA method is 7.4 times faster than the CPU method
 
 ### Writing data
 
+#### Slightly more complex operations
+
+[notebook link](./gpu_accelerated/pandas.ipynb)
+
+1. Filter rows (keep values in the `Destination Port` column that are greater than the median)
+2. Sort values (sort the `Destination Port` column in ascending order)
+3. Group by (group by the `Destination Port` column and count the number of occurrences)
+4. Add column (add a column with 2 times the value of the `Destination Port` column)
+
+##### Filter Rows
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 0.2585         |
+| cuDF                                | 0.0475         |
+| Pandas with `%load_ext cudf.pandas` | 0.0313         |
+
+For this operation, cuDF is 5.4 times faster than Pandas, and Pandas with `%load_ext cudf.pandas` is 8.3 times faster than Pandas
+
+##### Sort Values
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 1.9335         |
+| cuDF                                | 0.0684         |
+| Pandas with `%load_ext cudf.pandas` | 0.3990         |
+
+For this operation, cuDF is 28.2 times faster than Pandas, and Pandas with `%load_ext cudf.pandas` is 4.8 times faster than Pandas
+
+##### GroupBy Mean
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 3.8155         |
+| cuDF                                | 3.4842         |
+| Pandas with `%load_ext cudf.pandas` | 3.6203         |
+
+For this operation, cuDF is 1.1 times faster than Pandas, and Pandas with `%load_ext cudf.pandas` is 1.1 times faster than Pandas
+
+##### Add Column
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 0.5798         |
+| cuDF                                | 0.0049         |
+| Pandas with `%load_ext cudf.pandas` | 0.0030         |
+
+For this operation, cuDF is 118.4 times faster than Pandas, and Pandas with `%load_ext cudf.pandas` is 193.3 times faster than Pandas
+
 TO-DO
