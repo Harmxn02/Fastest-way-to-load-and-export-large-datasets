@@ -52,6 +52,8 @@ Here I compare the speeds of `pandas` and `cuDF` (Pandas with CUDA acceleration)
 
 ### Performing operations on data
 
+#### Simple operations
+
 We filter the dataset based on the `Destination Port` column, and then we sort it based on the `Destination Port` column
 
 | Library             | Time (seconds) |
@@ -70,8 +72,6 @@ The Polars method is 1.7 times faster than the Pandas method, and 2.2 times fast
 | Polars with CUDA | 3.3811         |
 
 The CUDA method is 7.4 times faster than the CPU method
-
-### Writing data
 
 #### Slightly more complex operations
 
@@ -122,4 +122,12 @@ For this operation, cuDF is 1.1 times faster than Pandas, and Pandas with `%load
 
 For this operation, cuDF is 118.4 times faster than Pandas, and Pandas with `%load_ext cudf.pandas` is 193.3 times faster than Pandas
 
-TO-DO
+### Writing data
+
+We simply export the first 100.000 rows of the dataset
+
+| Library                             | Time (seconds) |
+| ----------------------------------- | -------------- |
+| Pandas                              | 3.1182         |
+| cuDF                                | 0.1337         |
+| Pandas with `%load_ext cudf.pandas` | 3.0181         |
